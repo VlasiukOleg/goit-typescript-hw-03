@@ -22,6 +22,30 @@ class Person {
     }
 }
 
+abstract class House {
+
+    constructor(protected door: boolean,  protected key: Key, protected tenants: Person[]) {
+        this.key = key;
+        this.door = false;
+        this.tenants = [];
+    }
+
+    comeIn(person: Person) {
+        if (this.door) {
+            this.tenants.push(person);
+            console.log('Person entered the house.');
+        } else {
+            console.log('The door is closed.');
+        }
+    }
+
+    abstract openDoor(key: Key): void;
+
+}
+
+
+
+
 
 const key = new Key();
 
